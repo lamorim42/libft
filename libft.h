@@ -41,4 +41,13 @@ int	ft_isalnum(int c);
  */
 int	ft_isascii(int c);
 
+/**
+ * @brief Checks for printable character
+ *
+ * @param c Character to be checked
+ *
+ * @return int The values returned are 1 (true)
+ * if c is printable and 0 (false) if c is not printable
+ */
+int	ft_isprint(int c);
 #endif

@@ -59,5 +59,18 @@ int	main(void)
 			printf("OK ----- c = %d ----- ft_isascii(%d) = %d | isascii(%d) = %d\n", i, i, ft_isascii(i), i, isascii(i));
 		i++;
 	}
+	// test @ft_isprint
+	printf("----------------isprint----------------\n");
+	i = 0;
+	while (i < 128)
+	{
+		if (ft_isprint(i) && (i > 31 && i < 127))
+			printf("OK ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
+		else if ((!ft_isprint(i) && (i > 31 && i < 127)) || (ft_isprint(i) && !(i > 31 && i < 127)))
+			printf("KO ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
+		else
+			printf("OK ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
+		i++;
+	}
 	return (0);
 }
