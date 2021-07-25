@@ -3,7 +3,8 @@ TEST	= test_func.c
 
 OBJ_TEST= ${TEST:.c=.o}
 
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c
+SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+			ft_strlen.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -49,4 +50,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re lib testlib runfunc runlib
+.PHONY:		all clean fclean re lib testlib runtestfunc runtestlib

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "libft.h"
 
 int	main(void)
 {
+	const char	s[6] = "carro";
 	int	i;
 	// test @ft_isalpha
 	printf("----------------isalpha----------------\n");
@@ -72,5 +74,11 @@ int	main(void)
 			printf("OK ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
 		i++;
 	}
+	// test @ft_strlen
+	printf("----------------strlen----------------\n");
+	if (ft_strlen(s) == strlen(s))
+		printf("OK --- %lu = %lu\n", ft_strlen(s), strlen(s));
+	else
+		printf("KO --- %lu != %lu\n", ft_strlen(s), strlen(s));
 	return (0);
 }
