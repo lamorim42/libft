@@ -11,6 +11,8 @@ NAME	= test_func
 
 LIB_NAME= libft.a
 
+TEST_LIB= test_lib
+
 CC		= gcc
 RM		= rm -f
 CCLIB	= ar rc
@@ -30,18 +32,21 @@ all:		${NAME}
 lib:		${OBJS}
 			${CCLIB} ${LIB_NAME} ${OBJS}
 
-testlib:	lib
-			${CC} ${CFLAGS} -o ${NAME} ${TEST} ${LFLAGS}
+testlib:
+			${CC} ${CFLAGS} -o ${TEST_LIB} ${TEST} ${LFLAGS}
 
-run:		${NAME}
+runtestfunc:${NAME}
 			$(shell ./${NAME} | grep "^KO")
 
+runtestlib:
+			$(shell ./${TEST_LIB} > testlib.log)
+
 clean:
-			${RM} ${OBJS} ${OBJ_TEST}
+			${RM} ${OBJS} ${OBJ_TEST} testlib.log
 
 fclean:		clean
-			${RM} ${NAME} ${LIB_NAME}
+			${RM} ${NAME} ${TEST_LIB}
 
 re:			fclean all
 
-.PHONY:		all clean fclean re lib testlib run
+.PHONY:		all clean fclean re lib testlib runfunc runlib
