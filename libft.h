@@ -1,7 +1,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef unsigned long	t_size;
+typedef unsigned long	t_size_t;
 
 /**
  * @brief Checks for an alphabetic character
@@ -59,7 +59,9 @@ int	ft_isprint(int c);
  *
  * @param *s Character to be checked
  *
- * @return t_size returns the number of bytes in the string
+ * @return t_size_t returns the number of bytes in the string
  */
-t_size	ft_strlen(const char *s);
+t_size_t	ft_strlen(const char *s);
+
+void	*ft_memset(void *s, int c, t_size_t n);
 #endif

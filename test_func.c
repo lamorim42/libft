@@ -6,7 +6,8 @@
 int	main(void)
 {
 	const char	s[6] = "carro";
-	int	i;
+	int			arr[4] = {1, 2, 3, 4};
+	int			i;
 	// test @ft_isalpha
 	printf("----------------isalpha----------------\n");
 	i = 60;
@@ -80,5 +81,9 @@ int	main(void)
 		printf("OK --- %lu = %lu\n", ft_strlen(s), strlen(s));
 	else
 		printf("KO --- %lu != %lu\n", ft_strlen(s), strlen(s));
+	// test @ft_memset
+	printf("----------------memset----------------\n");
+	ft_memset(arr, 0, 2);
+	printf("%d, %d, %d, %d\n", arr[0], arr[1], arr[2], arr[3]);
 	return (0);
 }

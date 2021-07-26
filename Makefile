@@ -4,7 +4,7 @@ TEST	= test_func.c
 OBJ_TEST= ${TEST:.c=.o}
 
 SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			ft_strlen.c
+			ft_strlen.c ft_memset.c
 
 OBJS	= ${SRCS:.c=.o}
 
