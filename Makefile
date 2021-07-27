@@ -12,7 +12,7 @@ OBJ_TEST= ${TEST_FUN:.c=.o}
 
 TEST	= test
 
-CC		= gcc
+CC		= clang
 RM		= rm -f
 CCLIB	= ar rcs
 
@@ -29,7 +29,7 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 test:		${OBJS} ${OBJ_TEST}
-			${CC} ${CFLAGS} -o ${TEST} ${OBJ_TEST} ${LFLAGS}
+			${CC} ${CFLAGS} -o ${TEST} ${OBJ_TEST} ${LFLAGS} -lbsd
 
 run:
 			$(shell ./${TEST} | grep "^KO" > error.log)

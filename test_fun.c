@@ -1,10 +1,13 @@
 #include <ctype.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 #define STR_SIZE 12
 void	test_isalpha(void);
 void	test_isdigit(void);
+void	test_isalnum(void);
+
 
 int	main(void)
 {
@@ -12,25 +15,13 @@ int	main(void)
 	int			arr[4] = {1, 2, 3, 4};
 	int			i;
 	char		str_src[STR_SIZE] = "string test";
-	char		str_dst[STR_SIZE] = " ";
+	char		str_dst[] = " ";
 	// test @ft_isalpha
 	test_isalpha();
 	// test @ft_isdigit
 	test_isdigit();
 	// test @ft_isalnum
-	printf("----------------isalnum----------------\n");
-	i = 40;
-	while (i < 130)
-	{
-		if (ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
-			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-		else if ((ft_isalnum(i) && !((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
-				|| (!ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123)))))
-			printf("KO ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-		else
-			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-		i++;
-	}
+	test_isalnum();
 	// test @ft_isascii
 	printf("----------------isascii----------------\n");
 	i = 0;
@@ -64,11 +55,11 @@ int	main(void)
 	else
 		printf("KO --- %lu != %lu\n", ft_strlen(s), strlen(s));
 	// test @ft_strlcpy
-		printf("----------------strlcpy----------------\n");
+	printf("----------------strlcpy----------------\n");
 	if (ft_strlcpy(str_dst, str_src, STR_SIZE) == strlcpy(str_dst, str_src, STR_SIZE))
-		printf("OK --- %lu = %u\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
+		printf("OK --- %lu = %lu\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
 	else
-		printf("KO --- %lu != %u\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
+		printf("KO --- %lu = %lu\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
 	// test @ft_memset
 	printf("----------------memset----------------\n");
 	if (ft_memset(arr, -1, 2) == memset(arr, -1, 2))
@@ -114,13 +105,43 @@ void	test_isdigit(void)
 	{
 		if (ft_isdigit(i) && (i > 47 && i < 58))
 			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-		else if ((ft_isdigit(i) && !(i > 47 && i < 58)) || (!ft_isdigit(i) && (i > 47 && i < 58)))
+//		else if ((ft_isdigit(i) && !(i > 47 && i < 58)) || (!ft_isdigit(i) && (i > 47 && i < 58)))
+//		{
+//			printf("KO ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
+//			count_error++;
+//		}
+		else
 		{
-			printf("KO ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
+			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
+//			count_error++;
+		}
+		i++;
+	}
+	printf("Erros = %d ---isdigit\n", count_error);
+}
+
+void	test_isalnum(void)
+{
+	int	i;
+	int	count_error = 0;
+
+	printf("----------------isalnum----------------\n");
+	i = 40;
+	while (i < 130)
+	{
+		if (ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
+			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
+		else if ((ft_isalnum(i) && !((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
+				|| (!ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123)))))
+			{
+			printf("KO ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
+			count_error++;
+			}
+		else
+		{
+			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
 			count_error++;
 		}
-		else
-			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
 		i++;
 	}
 	printf("Erros = %d ---isdigit\n", count_error);
