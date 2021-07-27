@@ -1,18 +1,16 @@
 
-TEST	= test_func.c
-
-OBJ_TEST= ${TEST:.c=.o}
-
 SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_strlen.c ft_memset.c
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= test_func
+NAME	= libft.a
 
-LIB_NAME= libft.a
+TEST_FUN= test_fun.c
 
-TEST_LIB= test_lib
+OBJ_TEST= ${TEST_FUN:.c=.o}
+
+TEST	= test
 
 CC		= gcc
 RM		= rm -f
@@ -25,29 +23,22 @@ LFLAGS	= -L. -lft
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS} ${OBJ_TEST}
-			${CC} -o ${NAME} ${OBJS} ${OBJ_TEST}
+${NAME}:	${OBJS}
+			${CCLIB} ${NAME} ${OBJS}
 
 all:		${NAME}
 
-lib:		${OBJS}
-			${CCLIB} ${LIB_NAME} ${OBJS}
+test:		${OBJS} ${OBJ_TEST}
+			${CC} ${CFLAGS} -o ${TEST} ${OBJ_TEST} ${LFLAGS}
 
-testlib:
-			${CC} ${CFLAGS} -o ${TEST_LIB} ${TEST} ${LFLAGS}
-
-runtestfunc:${NAME}
-			$(shell ./${NAME} | grep "^KO")
-
-runtestlib:
-			$(shell ./${TEST_LIB} > testlib.log)
-
+run:
+			$(shell ./${TEST} | grep "^KO" > error.log)
 clean:
-			${RM} ${OBJS} ${OBJ_TEST} testlib.log
+			${RM} ${OBJS} ${OBJ_TEST}
 
 fclean:		clean
-			${RM} ${NAME} ${TEST_LIB}
+			${RM} ${NAME} ${TEST} error.log
 
 re:			fclean all
 
-.PHONY:		all clean fclean re lib testlib runtestfunc runtestlib
+.PHONY:		all clean fclean re run test
