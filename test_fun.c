@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_fun.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 21:41:31 by lamorim           #+#    #+#             */
+/*   Updated: 2021/07/28 15:46:25 by lamorim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <ctype.h>
 #include <string.h>
 #include <bsd/string.h>
@@ -7,6 +19,7 @@
 void	test_isalpha(void);
 void	test_isdigit(void);
 void	test_isalnum(void);
+void	test_toupper(void);
 
 
 int	main(void)
@@ -66,6 +79,8 @@ int	main(void)
 		printf("OK --- ft_memset(test) == memset(test)\n");
 	else
 		printf("KO --- ft_memset(test) != memset(test)\n");
+	//test @ft_toupper
+	test_toupper();
 	return (0);
 }
 
@@ -103,17 +118,15 @@ void	test_isdigit(void)
 	i = 40;
 	while (i < 60)
 	{
-		if (ft_isdigit(i) && (i > 47 && i < 58))
-			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-//		else if ((ft_isdigit(i) && !(i > 47 && i < 58)) || (!ft_isdigit(i) && (i > 47 && i < 58)))
-//		{
-//			printf("KO ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-//			count_error++;
-//		}
+		if ((ft_isdigit(i) && !(i > 47 && i < 58)) || (!ft_isdigit(i) && (i > 47 && i < 58)))
+		{
+			printf("KO ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
+			count_error++;
+		}
 		else
 		{
 			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-//			count_error++;
+			count_error++;
 		}
 		i++;
 	}
@@ -145,4 +158,21 @@ void	test_isalnum(void)
 		i++;
 	}
 	printf("Erros = %d ---isdigit\n", count_error);
+}
+
+void	test_toupper(void)
+{
+	printf("----------------toupper----------------\n");
+	if (ft_toupper('a') == toupper('a'))
+		printf("OK ---\n");
+	else
+		printf("KO ---\n");
+	if (ft_toupper('A') == toupper('A'))
+		printf("OK ---\n");
+	else
+		printf("KO ---\n");
+	if (ft_toupper('{') == toupper('{'))
+		printf("OK ---\n");
+	else
+		printf("KO ---\n");
 }
