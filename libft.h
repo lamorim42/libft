@@ -89,5 +89,46 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 	 */
 void	*ft_memset(void *s, int c, size_t n);
 
-int	ft_toupper(int c);
+	/**
+	 * @brief If c is a lowercase letter, returns its uppercase,
+	 * if c is a uppercase letter, returns its lowercase
+	 *
+	 * @param c char to be converted
+	 *
+	 * @return int returns lowercase c or uppercase c
+	 */
+int		ft_toupper(int c);
+
+	/**
+	 * @brief If c is a lowercase letter, returns its uppercase.
+	 *
+	 * @param c char to be converted
+	 *
+	 * @return int returns uppercase c
+	 */
+int		ft_tolower(int c);
+
+	/**
+	 * @brief returns a pointer to the first occurrence of the
+	 * character c in the string s.
+	 *
+	 * @param 
+	 * s pointer to string
+	 * c letter to looking for
+	 *
+	 * @return c returns the corresponding lower-case letter
+	 */
+char	*ft_strchr(const char *s, int c);
+
+	/**
+	 * @brief returns a pointer to the last occurrence of the
+	 * character c in the string s.
+	 *
+	 * @param 
+	 * s pointer to string
+	 * c letter to looking for
+	 *
+	 * @return c returns the corresponding lower-case letter
+	 */
+char	*ft_strrchr(const char *s, int c);
 #endif

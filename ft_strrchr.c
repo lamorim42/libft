@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 14:46:49 by lamorim           #+#    #+#             */
-/*   Updated: 2021/07/29 22:14:53 by lamorim          ###   ########.fr       */
+/*   Created: 2021/07/29 13:46:31 by lamorim           #+#    #+#             */
+/*   Updated: 2021/07/29 16:23:43 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	src_size;
-	size_t	dst_size;
+	size_t	len;
+	char	*str;
 
-	src_size = 0;
-	dst_size = 0;
-	while (*src)
+	len = ft_strlen(s);
+	str = (char *)s;
+	if (c == 0)
+		return (&str[len]);
+	while (len)
 	{
-		src_size++;
-		src++;
+		if (str[len] == (char)c)
+			return (&str[len]);
+		len--;
 	}
-	if (dstsize != 0)
-	{
-		while (dst_size < dstsize && src[dst_size] != '\0')
-		{
-			dst[dst_size] = src[dst_size];
-			dst_size++;
-		}
-		dst[dst_size] = '\0';
-	}
-	return (src_size);
+	if (str[len] == (char)c)
+		return (&str[len]);
+	return (0);
 }

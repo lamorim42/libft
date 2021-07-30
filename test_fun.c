@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 21:41:31 by lamorim           #+#    #+#             */
-/*   Updated: 2021/07/28 15:46:25 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/07/29 22:10:46 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,164 +15,364 @@
 #include <bsd/string.h>
 #include "libft.h"
 
+//Regular text
+#define BLK "\e[0;30m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define YEL "\e[0;33m"
+#define BLU "\e[0;34m"
+#define MAG "\e[0;35m"
+#define CYN "\e[0;36m"
+#define WHT "\e[0;37m"
+
+//Regular bold text
+#define BBLK "\e[1;30m"
+#define BRED "\e[1;31m"
+#define BGRN "\e[1;32m"
+#define BYEL "\e[1;33m"
+#define BBLU "\e[1;34m"
+#define BMAG "\e[1;35m"
+#define BCYN "\e[1;36m"
+#define BWHT "\e[1;37m"
+
+//Regular underline text
+#define UBLK "\e[4;30m"
+#define URED "\e[4;31m"
+#define UGRN "\e[4;32m"
+#define UYEL "\e[4;33m"
+#define UBLU "\e[4;34m"
+#define UMAG "\e[4;35m"
+#define UCYN "\e[4;36m"
+#define UWHT "\e[4;37m"
+
+//Regular background
+#define BLKB "\e[40m"
+#define REDB "\e[41m"
+#define GRNB "\e[42m"
+#define YELB "\e[43m"
+#define BLUB "\e[44m"
+#define MAGB "\e[45m"
+#define CYNB "\e[46m"
+#define WHTB "\e[47m"
+
+//High intensty background
+#define BLKHB "\e[0;100m"
+#define REDHB "\e[0;101m"
+#define GRNHB "\e[0;102m"
+#define YELHB "\e[0;103m"
+#define BLUHB "\e[0;104m"
+#define MAGHB "\e[0;105m"
+#define CYNHB "\e[0;106m"
+#define WHTHB "\e[0;107m"
+
+//High intensty text
+#define HBLK "\e[0;90m"
+#define HRED "\e[0;91m"
+#define HGRN "\e[0;92m"
+#define HYEL "\e[0;93m"
+#define HBLU "\e[0;94m"
+#define HMAG "\e[0;95m"
+#define HCYN "\e[0;96m"
+#define HWHT "\e[0;97m"
+
+//Bold high intensity text
+#define BHBLK "\e[1;90m"
+#define BHRED "\e[1;91m"
+#define BHGRN "\e[1;92m"
+#define BHYEL "\e[1;93m"
+#define BHBLU "\e[1;94m"
+#define BHMAG "\e[1;95m"
+#define BHCYN "\e[1;96m"
+#define BHWHT "\e[1;97m"
+
+//Reset
+#define reset "\e[0m"
+
 #define STR_SIZE 12
+
 void	test_isalpha(void);
 void	test_isdigit(void);
 void	test_isalnum(void);
+void	test_isascii(void);
+void	test_isprint(void);
 void	test_toupper(void);
-
+void	test_tolower(void);
+void	test_strlen(void);
+void	test_strlcpy(void);
+void	test_strchr(void);
+void	test_strrchr(void);
+void	test_memset(void);
 
 int	main(void)
 {
-	const char	s[6] = "carro";
-	int			arr[4] = {1, 2, 3, 4};
-	int			i;
-	char		str_src[STR_SIZE] = "string test";
-	char		str_dst[] = " ";
-	// test @ft_isalpha
 	test_isalpha();
-	// test @ft_isdigit
 	test_isdigit();
-	// test @ft_isalnum
 	test_isalnum();
-	// test @ft_isascii
-	printf("----------------isascii----------------\n");
-	i = 0;
-	while (i < 135)
-	{
-		if (ft_isascii(i) && (i >= 0 && i <= 127))
-			printf("OK ----- c = %d ----- ft_isascii(%d) = %d | isascii(%d) = %d\n", i, i, ft_isascii(i), i, isascii(i));
-		else if ((ft_isascii(i) && !(i >= 0 && i <= 127)) || (!ft_isascii(i) && (i >= 0 && i <= 127)))
-			printf("KO ----- c = %d ----- ft_isascii(%d) = %d | isascii(%d) = %d\n", i, i, ft_isascii(i), i, isascii(i));
-		else
-			printf("OK ----- c = %d ----- ft_isascii(%d) = %d | isascii(%d) = %d\n", i, i, ft_isascii(i), i, isascii(i));
-		i++;
-	}
-	// test @ft_isprint
-	printf("----------------isprint----------------\n");
-	i = 0;
-	while (i < 128)
-	{
-		if (ft_isprint(i) && (i > 31 && i < 127))
-			printf("OK ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
-		else if ((!ft_isprint(i) && (i > 31 && i < 127)) || (ft_isprint(i) && !(i > 31 && i < 127)))
-			printf("KO ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
-		else
-			printf("OK ----- c = %d ----- ft_isprint(%d) = %d | isprint(%d) = %d\n", i, i, ft_isprint(i), i, isprint(i));
-		i++;
-	}
-	// test @ft_strlen
-	printf("----------------strlen----------------\n");
-	if (ft_strlen(s) == strlen(s))
-		printf("OK --- %lu = %lu\n", ft_strlen(s), strlen(s));
-	else
-		printf("KO --- %lu != %lu\n", ft_strlen(s), strlen(s));
-	// test @ft_strlcpy
-	printf("----------------strlcpy----------------\n");
-	if (ft_strlcpy(str_dst, str_src, STR_SIZE) == strlcpy(str_dst, str_src, STR_SIZE))
-		printf("OK --- %lu = %lu\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
-	else
-		printf("KO --- %lu = %lu\n", ft_strlcpy(str_dst, str_src, STR_SIZE), strlcpy(str_dst, str_src, STR_SIZE));
-	// test @ft_memset
-	printf("----------------memset----------------\n");
-	if (ft_memset(arr, -1, 2) == memset(arr, -1, 2))
-		printf("OK --- ft_memset(test) == memset(test)\n");
-	else
-		printf("KO --- ft_memset(test) != memset(test)\n");
-	//test @ft_toupper
+	test_isascii();
+	test_isprint();
+	test_strlen();
+	test_strlcpy();
+	test_memset();
 	test_toupper();
+	test_tolower();
+	test_strchr();
+	test_strrchr();
 	return (0);
 }
 
 void	test_isalpha(void)
 {
-	int	i;
-	int	count_error = 0;
+	char	isalpha_test[4] = {'A', 'Z', 'a', 'z',};
+	char	isnotalpha_test[5] = {0, '@', '[', '`', '{'};
+	int		i = 0;
 
-	printf("----------------isalpha----------------\n");
-	i = 60;
-	while (i < 128)
+	printf(BHYEL "----------------isalpha----------------\n" reset);
+	printf(BMAG "Alphabetic characters: " reset);
+	while (i < 4)
 	{
-		if (ft_isalpha(i) && ((i > 64 && i < 91) || (i > 96 &&  i < 123)))
-			printf("OK ----- c = %d ----- ft_isalpha(%d) = %d | isalpha(%d) = %d\n", i, i, ft_isalpha(i), i, isalpha(i));
-		else if ((ft_isalpha(i) && !((i > 64 && i < 91) || (i > 96 &&  i < 123)))
-				|| (!ft_isalpha(i) && ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
-		{
-			printf("KO ----- c = %d ----- ft_isalpha(%d) = %d | isalpha(%d) = %d\n", i, i, ft_isalpha(i), i, isalpha(i));
-			count_error++;
-		}
+		if (ft_isalpha(isalpha_test[i]) > 0)
+			printf(GRN "[OK]" reset);
 		else
-			printf("OK ----- c = %d ----- ft_isalpha(%d) = %d | isalpha(%d) = %d\n", i, i, ft_isalpha(i), i, isalpha(i));
+			printf(RED "[KO]" reset);
 		i++;
 	}
-	printf("Erros = %d ---isalpha\n", count_error);
+	printf(BMAG "\nNot alphabetic characters: " reset);
+	i = 0;
+	while (i < 5)
+	{
+		if (ft_isalpha(isnotalpha_test[i]) == 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
 }
 
 void	test_isdigit(void)
 {
-	int	i;
-	int	count_error = 0;
+	char	isdigit_test[2] = {'1', '9'};
+	char	isnotdigit_test[2] = {'/', ':'};
+	int		i = 0;
 
-	i = 0;
-	printf("----------------isdigit----------------\n");
-	i = 40;
-	while (i < 60)
+	printf(BHYEL "----------------isdigit----------------\n" reset);
+	printf(BMAG "Digit characters: " reset);
+	while (i < 2)
 	{
-		if ((ft_isdigit(i) && !(i > 47 && i < 58)) || (!ft_isdigit(i) && (i > 47 && i < 58)))
-		{
-			printf("KO ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-			count_error++;
-		}
+		if (ft_isdigit(isdigit_test[i]) > 0)
+			printf(GRN "[OK]" reset);
 		else
-		{
-			printf("OK ----- c = %d ----- ft_isdigit(%d) = %d | isdigit(%d) = %d\n", i, i, ft_isdigit(i), i, isdigit(i));
-			count_error++;
-		}
+			printf(RED "[KO]" reset);
 		i++;
 	}
-	printf("Erros = %d ---isdigit\n", count_error);
+	printf(BMAG "\nNot digit characters: " reset);
+	i = 0;
+	while (i < 2)
+	{
+		if (ft_isdigit(isnotdigit_test[i]) == 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
 }
 
 void	test_isalnum(void)
 {
-	int	i;
-	int	count_error = 0;
+	char	isalnum_test[6] = {'1', '9', 'A', 'Z', 'a', 'z'};
+	char	isnotalnum_test[7] = {'/', ':', 0, '@', '[', '`', '{'};
+	int		i = 0;
 
-	printf("----------------isalnum----------------\n");
-	i = 40;
-	while (i < 130)
+	printf(BHYEL "----------------isalnum----------------\n" reset);
+	printf(BMAG "Alphanumeric characters: " reset);
+	while (i < 6)
 	{
-		if (ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
-			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-		else if ((ft_isalnum(i) && !((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123))))
-				|| (!ft_isalnum(i) && ((i > 47 && i < 58) || ((i > 64 && i < 91) || (i > 96 &&  i < 123)))))
-			{
-			printf("KO ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-			count_error++;
-			}
+		if (ft_isalnum(isalnum_test[i]) > 0)
+			printf(GRN "[OK]" reset);
 		else
-		{
-			printf("OK ----- c = %d ----- ft_isalnum(%d) = %d | isalnum(%d) = %d\n", i, i, ft_isalnum(i), i, isalnum(i));
-			count_error++;
-		}
+			printf(RED "[KO]" reset);
 		i++;
 	}
-	printf("Erros = %d ---isdigit\n", count_error);
+	printf(BMAG "\nNot alphanumeric characters: " reset);
+	i = 0;
+	while (i < 7)
+	{
+		if (ft_isalnum(isnotalnum_test[i]) == 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
+}
+
+void	test_isascii(void)
+{
+	int	isascii_test[2] = {0, 127};
+	int	isnotascii_test[2] = {-1 , 178};
+	int	i = 0;
+
+	printf(BHYEL "----------------isascii----------------\n" reset);
+	printf(BMAG "Is ascii characters: " reset);
+	while (i < 2)
+	{
+		if (ft_isascii(isascii_test[i]) > 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf(BMAG "\nIs not ascii characters: " reset);
+	i = 0;
+	while (i < 2)
+	{
+		if (ft_isascii(isnotascii_test[i]) == 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
+}
+
+void	test_isprint(void)
+{
+	int	isprint_test[2] = {32, 126};
+	int	isnotprint_test[2] = {31 , 127};
+	int	i = 0;
+
+	printf(BHYEL "----------------isprint----------------\n" reset);
+	printf(BMAG "Is a printable characters: " reset);
+	while (i < 2)
+	{
+		if (ft_isprint(isprint_test[i]) > 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf(BMAG "\nIs not a printable characters: " reset);
+	i = 0;
+	while (i < 2)
+	{
+		if (ft_isprint(isnotprint_test[i]) == 0)
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
+}
+
+void	test_strlen(void)
+{
+	const char	s[7] = "string";
+
+	printf(BHYEL "----------------strlen----------------\n" reset);
+	printf(BMAG "String length = %ld " reset, ft_strlen(s));
+	if (ft_strlen(s) == strlen(s))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	printf("\n\n");
+}
+
+void	test_strlcpy(void)
+{
+	char		str_src[STR_SIZE] = "string test";
+	char		str_dst[] = " ";
+
+	printf(BHYEL "----------------strlcpy----------------\n" reset);
+	if (ft_strlcpy(str_src, str_dst, STR_SIZE) == strlcpy(str_src, str_dst, STR_SIZE))
+		printf(GRN "[OK]\n\n" reset);
+	else
+		printf(RED "[KO]\n\n" reset);
+}
+
+void	test_memset(void)
+{
+	int			arr0[4] = {1, 2, 3, 4};
+	int			arr1[4] = {1, 2, 3, 4};
+
+	printf(BHYEL "----------------memset----------------\n" reset);
+	if (ft_memset(arr0, -1, 2) == memset(arr0, -1, 2))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_memset(arr1, 0, 7) == memset(arr1, 0, 7))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	printf("\n\n");
 }
 
 void	test_toupper(void)
 {
-	printf("----------------toupper----------------\n");
-	if (ft_toupper('a') == toupper('a'))
-		printf("OK ---\n");
+	char	toupper_test[3] = {'a', 'A', '{'};
+	int		i = 0;
+	
+	printf(BHYEL "----------------toupper----------------\n" reset);
+	while (i < 3)
+	{
+	if (ft_toupper(toupper_test[i]) == toupper(toupper_test[i]))
+		printf(GRN "[OK]" reset);
 	else
-		printf("KO ---\n");
-	if (ft_toupper('A') == toupper('A'))
-		printf("OK ---\n");
+		printf(RED "[KO]" reset);
+	i++;
+	}
+	printf("\n\n");
+}
+
+void	test_tolower(void)
+{
+	char	tolower_test[3] = {'a', 'A', '{'};
+	int		i = 0;
+
+	printf(BHYEL "----------------tolower----------------\n" reset);
+	while (i < 3)
+	{
+		if (ft_tolower(tolower_test[i]) == tolower(tolower_test[i]))
+			printf(GRN "[OK]" reset);
+		else
+			printf(RED "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
+}
+
+void	test_strchr(void)
+{
+	char	str_src[STR_SIZE] = "string test";
+	char	strchr_test[4] = {'g', 'w', ' ', '\0'};
+	int		i = 0;
+
+	printf(BHYEL "----------------strchr----------------\n" reset);
+	while (i < 4)
+	{
+		if (ft_strchr(str_src, strchr_test[i]) == strchr(str_src, strchr_test[i]))
+			printf(GRN "[OK]" reset);
+		else
+			printf(GRN "[KO]" reset);
+		i++;
+	}
+	printf("\n\n");
+}
+
+void	test_strrchr(void)
+{
+	char	str_src[STR_SIZE] = "string test";
+	char	strrchr_test[4] = {'s', 'w', ' ', '\0'};
+	int		i = 0;
+
+	printf(BHYEL "----------------strrchr----------------\n" reset);
+	while (i < 4)
+	{
+	if (ft_strrchr(str_src,strrchr_test[i]) == strrchr(str_src,strrchr_test[i]))
+		printf(GRN "[OK]" reset);
 	else
-		printf("KO ---\n");
-	if (ft_toupper('{') == toupper('{'))
-		printf("OK ---\n");
-	else
-		printf("KO ---\n");
+		printf(GRN "[KO]" reset);
+	i++;
+	}
+	printf("\n\n");
 }
