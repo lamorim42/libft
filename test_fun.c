@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 21:41:31 by lamorim           #+#    #+#             */
-/*   Updated: 2021/07/29 22:10:46 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/07/30 16:56:18 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	test_strlen(void);
 void	test_strlcpy(void);
 void	test_strchr(void);
 void	test_strrchr(void);
+void	test_strncmp(void);
 void	test_memset(void);
 
 int	main(void)
@@ -117,6 +118,7 @@ int	main(void)
 	test_tolower();
 	test_strchr();
 	test_strrchr();
+	test_strncmp();
 	return (0);
 }
 
@@ -374,5 +376,31 @@ void	test_strrchr(void)
 		printf(GRN "[KO]" reset);
 	i++;
 	}
+	printf("\n\n");
+}
+
+void	test_strncmp(void)
+{
+	char	s0[] = "string test";
+	char	s1[] = "string test";
+	char	s2[] = "test string";
+
+	printf(BHYEL "----------------strncmp----------------\n" reset);
+	if (ft_strncmp(s0, s1, 11) == strncmp(s0, s1, 11))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_strncmp(s0, s1, 4) == strncmp(s0, s1, 4))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_strncmp(s1, s2, 11) == strncmp(s1, s2, 11))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_strncmp(s1, s2, 3) == strncmp(s1, s2, 3))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
 	printf("\n\n");
 }
