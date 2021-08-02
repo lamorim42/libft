@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 21:41:31 by lamorim           #+#    #+#             */
-/*   Updated: 2021/07/30 16:56:18 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/02 16:18:50 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	test_strchr(void);
 void	test_strrchr(void);
 void	test_strncmp(void);
 void	test_memset(void);
+void	test_strlcat(void);
 
 int	main(void)
 {
@@ -111,14 +112,15 @@ int	main(void)
 	test_isalnum();
 	test_isascii();
 	test_isprint();
-	test_strlen();
-	test_strlcpy();
-	test_memset();
 	test_toupper();
 	test_tolower();
+	test_strlen();
+	test_strlcpy();
 	test_strchr();
 	test_strrchr();
 	test_strncmp();
+	test_strlcat();
+	test_memset();
 	return (0);
 }
 
@@ -403,4 +405,29 @@ void	test_strncmp(void)
 	else
 		printf(RED "[KO]" reset);
 	printf("\n\n");
+}
+
+void	test_strlcat(void)
+{
+	char	src0[] = "test";
+	char	dst0[] = "string";
+	char	src1[] = "";
+	char	dst1[] = "testing";
+	char	src2[] = "testing";
+	char	dst2[] = "";
+
+	printf(BHYEL "----------------strlcat----------------\n" reset);
+	if (ft_strlcat(dst0, src0, sizeof(dst0)) == strlcat(dst0, src0, sizeof(dst0)))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_strlcat(dst1, src1, sizeof(dst1)) == strlcat(dst1, src1, sizeof(dst1)))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	if (ft_strlcat(dst2, src2, sizeof(dst2)) == strlcat(dst2, src2, sizeof(dst2)))
+		printf(GRN "[OK]" reset);
+	else
+		printf(RED "[KO]" reset);
+	printf("\n");
 }
