@@ -145,7 +145,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  *
  */
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-//TODO ft_strnstr
+
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 /**
  * @brief fills the first n bytes of the memory area

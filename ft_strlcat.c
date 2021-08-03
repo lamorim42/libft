@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:38:34 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/02 20:00:46 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/03 11:53:27 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	char	*dst_cpy;
+	char	*src_cpy;
+	size_t	buf_size;
 	size_t	dst_len;
 
-	dst_len = ft_strlen(dst);
-	if (ft_strlen(dst) && ft_strlen(src))
+	dst_cpy = dst;
+	src_cpy = (char *)src;
+	buf_size = size;
+	while (buf_size-- != 0 && *dst_cpy != '\0')
+		dst_cpy++;
+	dst_len = dst_cpy - dst;
+	buf_size = size - dst_len;
+	if (buf_size == 0)
+		return (dst_len + ft_strlen(src));
+	while (*src_cpy != '\0')
 	{
-		i = 0;
-		while (src[i] != '\0' && i < size - dst_len - 1)
+		if (buf_size != 1)
 		{
-			dst[dst_len + i] = src[i];
-			i++;
+			*dst_cpy++ = *src_cpy;
+			buf_size--;
 		}
-		dst[size + i] = '\0';
-		return (ft_strlen(dst));
+		src_cpy++;
 	}
-	return (ft_strlen(dst) + ft_strlen(src));
+	*dst_cpy = '\0';
+	return (dst_len + (src_cpy - src));
 }
