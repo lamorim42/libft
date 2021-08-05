@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:14:20 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/03 20:47:37 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/04 15:32:57 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,23 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
+	size_t	big_index;
+	size_t	lit_index;
+	size_t	len_lit;
 	char	*big_cpy;
-	char	*lit_cpy;
-	size_t	lit_len;
 
+	big_index = 0;
+	lit_index = 0;
+	len_lit = ft_strlen(little);
 	big_cpy = (char *) big;
-	lit_cpy = (char *) little;
-	if (!ft_strlen(lit_cpy))
+	if (len_lit == 0)
 		return (big_cpy);
-	while (*big_cpy != '\0')
+	while (big_cpy[big_index] != '\0' && len-- >= len_lit)
 	{
-		if (*big_cpy == *lit_cpy)
-		{
-			lit_len = len;
-			while (*big_cpy == *lit_cpy && lit_len--)
-			{
-				big_cpy++;
-				lit_cpy++;
-			}
-			if (*lit_cpy == '\0' && len > 0)
-				return (big_cpy - len);
-		}
-		big_cpy++;
-		lit_cpy = lit_cpy - len;
+		if (big_cpy[big_index] == little[lit_index]
+			&& !ft_strncmp(big_cpy + big_index, little, len_lit))
+			return (big_cpy + big_index);
+		big_index++;
 	}
 	return (0);
 }
-

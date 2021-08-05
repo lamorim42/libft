@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/04 15:30:21 by lamorim           #+#    #+#             */
+/*   Updated: 2021/08/04 16:59:14 by lamorim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
@@ -146,6 +158,17 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  */
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
+/**
+ * @brief find the firts occurrence of little string in big string
+ *
+ * @param 
+ * big string base
+ * little string to be find
+ * len limit of search
+ *
+ * @return char return ponter to string
+ *
+ */
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 /**
@@ -161,10 +184,33 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
  */
 void	*ft_memset(void *s, int c, size_t n);
 
-//TODO ft_memcpy
+/**
+ * @brief erases the data in the n bytes of the memory starting at
+ * the location pointed to by s
+ * 
+ * @param 
+ * s pointer to memory area
+ * n the number of bytes to be 0
+ *
+ * @return void
+ */
+void	ft_bzero(void *s, size_t n);
+
+/**
+ * @brief cans the initial n bytes of the memory area pointed to by s
+ * for the first instance of c
+ * 
+ * @param 
+ * s pointer to memory area
+ * c char to looking for
+ * n the number of bytes to be scaned
+ *
+ * @return void pointer to first instance of c or NULL
+ */
+void	*ft_memchr(const void *s, int c, size_t n);
+
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 //TODO ft_memmove
-//TODO ft_memchr
 //TODO ft_memcmp
-//TODO ft_bzero
 //TODO ft_atoi
 #endif
