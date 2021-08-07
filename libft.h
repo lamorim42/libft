@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:30:21 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/04 16:59:14 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/06 14:56:50 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,7 +210,9 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 
 void	*ft_memcpy(void *dest, const void *src, size_t n);
-//TODO ft_memmove
-//TODO ft_memcmp
+
+void	*ft_memmove(void *dest, const void *src, size_t n);
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 //TODO ft_atoi
 #endif

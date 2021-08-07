@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 19:33:55 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/06 20:21:23 by lamorim          ###   ########.fr       */
+/*   Created: 2021/08/06 14:16:20 by lamorim           #+#    #+#             */
+/*   Updated: 2021/08/06 21:15:18 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	unsigned char	*s1_cpy;
+	unsigned char	*s2_cpy;
+
+	s1_cpy = (unsigned char *) s1;
+	s2_cpy = (unsigned char *) s2;
+	while (n--)
+	{
+		if (*s1_cpy != *s2_cpy)
+			return (s1_cpy - s2_cpy);
+		s1_cpy++;
+		s2_cpy++;
+	}
 	return (0);
 }
