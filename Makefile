@@ -27,16 +27,16 @@ LFLAGS	= -L. -lft
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 			${CCLIB} ${NAME} ${OBJS}
 
-all:		${NAME}
+all:		$(NAME)
 
 test:		${OBJS} ${OBJ_TEST}
 			${CC} ${CFLAGS} -o ${TEST} ${OBJ_TEST} ${LFLAGS} -lbsd
 
 run:
-			$(shell ./${TEST} > error.log)
+			./${TEST} > error.log
 
 clean:
 			${RM} ${OBJS} ${OBJ_TEST}
