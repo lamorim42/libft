@@ -6,13 +6,13 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_memcmp.c \
 			ft_atoi.c
 
-OBJS	= ${SRCS:.c=.o}
+OBJS	= $(SRCS:.c=.o)
 
 NAME	= libft.a
 
 TEST_FUN= test_fun.c
 
-OBJ_TEST= ${TEST_FUN:.c=.o}
+OBJ_TEST= $(TEST_FUN:.c=.o)
 
 TEST	= test
 
@@ -25,24 +25,27 @@ CFLAGS	= -Wall -Wextra -Werror
 LFLAGS	= -L. -lft
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):	${OBJS}
-			${CCLIB} ${NAME} ${OBJS}
+$(NAME):	$(OBJS)
+			$(CCLIB) $(NAME) $(OBJS)
 
 all:		$(NAME)
 
-test:		${OBJS} ${OBJ_TEST}
-			${CC} ${CFLAGS} -o ${TEST} ${OBJ_TEST} ${LFLAGS} -lbsd
+test:		$(OBJS) $(OBJ_TEST)
+			$(CC) $(CFLAGS) -o $(TEST) $(OBJ_TEST) $(LFLAGS) -lbsd
+
+runtest:
+			./$(TEST) > error.log
 
 run:
-			./${TEST} > error.log
+	../libft_tester/grademe.sh
 
 clean:
-			${RM} ${OBJS} ${OBJ_TEST}
+			$(RM) $(OBJS) $(OBJ_TEST)
 
 fclean:		clean
-			${RM} ${NAME} ${TEST} error.log a.out libft.so
+			$(RM) $(NAME) $(TEST) error.log a.out libft.so
 
 re:			fclean all
 

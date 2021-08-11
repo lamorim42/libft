@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 14:46:49 by lamorim           #+#    #+#             */
-/*   Updated: 2021/07/29 22:14:53 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/10 18:46:19 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 
 	src_size = 0;
 	dst_size = 0;
-	while (*src)
-	{
+	while (src[src_size])
 		src_size++;
-		src++;
-	}
 	if (dstsize != 0)
 	{
-		while (dst_size < dstsize && src[dst_size] != '\0')
+		while (dst_size < dstsize - 1 && src[dst_size] != '\0')
 		{
 			dst[dst_size] = src[dst_size];
 			dst_size++;

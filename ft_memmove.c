@@ -6,47 +6,31 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 13:36:23 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/06 14:07:27 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/10 16:52:51 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//void	*ft_memmove(void *dest, const void *src, size_t n)
-//{
-//	char	*tempoarray;
-//	size_t	i;
-//
-//	tempoarray = (char *) src;
-//	i = 0;
-//	while (tempoarray[i] && ((char *) dest)[i] && i < n)
-//	{
-//		((char *) dest)[i] = tempoarray[i];
-//		i++;
-//	}
-//	return (dest);
-//}
-
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*d;
-	char	*s;
-	char	*last_d;
-	char	*last_s;
+	char		*dest_cpy;
+	const char	*src_cpy;
+	size_t		i;
 
-	d = (char *) dest;
-	s = (char *) src;
-	if (d < s)
+	dest_cpy = (char *) dest;
+	src_cpy = (char *) src;
+	i = n;
+	if (dest_cpy < src_cpy)
 	{
 		while (n--)
-			*d++ = *s++;
+			*dest_cpy++ = *src_cpy++;
+		return (dest);
 	}
 	else
 	{
-		last_s = s + (n - 1);
-		last_d = d + (n - 1);
-		while (n--)
-			*last_d++ = *last_s++;
+		while (i--)
+			dest_cpy[i] = src_cpy[i];
+		return (dest);
 	}
-	return (dest);
 }
