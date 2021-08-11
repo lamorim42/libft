@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 15:48:48 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/09 17:32:33 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/11 16:21:49 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_atoi(const char *nptr)
 	while (ft_isdigit(nptr[i]))
 	{
 		nptr_int = (nptr_int * 10) + (nptr[i] - '0');
+		i++;
 	}
 	return (nptr_int * signal);
 }
