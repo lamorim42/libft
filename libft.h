@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:30:21 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/11 19:49:38 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/12 16:44:29 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,5 +221,11 @@ int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 char	*ft_strdup(const char *s);
+
+// Part 2
+
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+
+char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif

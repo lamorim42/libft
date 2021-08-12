@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:28:00 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/11 16:56:31 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/12 08:40:03 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	i = 0;
 	if (!nmemb || !size)
-		return (0);
+		return (NULL);
 	obj = (size_t *) malloc(size * nmemb);
-	while (obj[i])
-		obj[i++] = 0;
+	ft_bzero(obj, size * nmemb);
 	return (obj);
 }
