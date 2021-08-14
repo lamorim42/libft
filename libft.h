@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 00:47:05 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/14 17:09:32 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,14 +210,68 @@ void	ft_bzero(void *s, size_t n);
  */
 void	*ft_memchr(const void *s, int c, size_t n);
 
+/**
+ * @brief copies n bytes from memory area src to memory area dest
+ * 
+ * 
+ * @param 
+ * dest memory area destination
+ * src memory area source
+ * n the number of bytes to be copy
+ *
+ * @return void pointer to dest
+ */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
+/**
+ * @brief copies n bytes from memory area src to memory area dest
+ * 
+ * 
+ * @param 
+ * dest memory area destination
+ * src memory area source
+ * n the number of bytes to be copy
+ *
+ * @return void pointer to dest
+ */
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
+/**
+ * @brief compares the first n bytes (each interpreted as unsigned char)
+ * of the memory areas s1 and s2.
+ * 
+ * 
+ * @param
+ * s1 memory area to be compare with
+ * s2 memory area to be compare
+ * n the number of bytes to be compare
+ *
+ * @return void function returns an integer less than, equal to, or greater
+ * than zero if the first n bytes  of  s1 is found, respectively,
+ * to be less than, to match, or be greater than the first n bytes of s2.
+ */
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
+/**
+ * @brief converts the initial portion of the string pointed to by nptr to int.
+ * 
+ * @param
+ * nptr initial string area
+ *
+ * @return int converted value
+ */
 int		ft_atoi(const char *nptr);
 
+/**
+ * @brief allocates memory for an array of nmemb elements of size bytes each
+ * and returns a pointer to the allocated memory. The memory is set to zero.
+ * If nmemb or size is 0, then calloc() returns either NULL
+ * 
+ * @param
+ * nmemb 
+ *
+ * @return int converted value
+ */
 void	*ft_calloc(size_t nmemb, size_t size);
 
 char	*ft_strdup(const char *s);

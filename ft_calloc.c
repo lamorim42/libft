@@ -15,9 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	*obj;
-	int		i;
-
-	i = 0;
+	
 	if (!nmemb || !size)
 		return (NULL);
 	obj = (size_t *) malloc(size * nmemb);

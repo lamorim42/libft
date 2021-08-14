@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:06:44 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 00:50:17 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/14 17:26:41 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,15 @@ static int	ft_count_occurrence(const char *s, char c)
 		i++;
 	}
 	return (count);
+}
+
+int	main(void)
+{
+	const char	s[] = "Bom dia galera";
+	char		c = ' ';
+	char		**arr;
+
+	arr = ft_split(s, c);
+	printf("%s\n", *arr);
+	return (0);
 }

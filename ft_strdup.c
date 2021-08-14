@@ -16,11 +16,9 @@ char	*ft_strdup(const char *s)
 {
 	char	*s_cpy;
 	size_t	s_len;
-	int		i;
 
 	s_len = ft_strlen(s);
 	s_cpy = (char *) malloc(s_len);
-	i = 0;
 	ft_memcpy(s_cpy, s, s_len);
 	return (s_cpy);
 }
