@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/04 15:30:21 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/12 16:44:29 by lamorim          ###   ########.fr       */
+/*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
+/*   Updated: 2021/08/14 00:47:05 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,5 +227,9 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(const char *s1, const char *s2);
+
+char	*ft_strtrim(const char *s1, const char *set);
+
+char	**ft_split(const char *s, char c);
 
 #endif
