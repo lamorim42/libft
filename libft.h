@@ -6,13 +6,14 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 17:09:32 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/14 19:37:08 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
+//TODO Retirar stdio anstes de enviar
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -131,6 +132,7 @@ char	*ft_strchr(const char *s, int c);
  * @return c returns the corresponding lower-case letter
  */
 char	*ft_strrchr(const char *s, int c);
+
 
 /**
  * @brief compares the first n bytes of s1 and s2
@@ -268,9 +270,10 @@ int		ft_atoi(const char *nptr);
  * If nmemb or size is 0, then calloc() returns either NULL
  * 
  * @param
- * nmemb 
+ * nmemb number elements of the array
+ * size size to be allocated
  *
- * @return int converted value
+ * @return void pointer to the allocated memory
  */
 void	*ft_calloc(size_t nmemb, size_t size);
 

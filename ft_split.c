@@ -6,58 +6,72 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:06:44 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 17:26:41 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/14 20:44:40 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_occurrence(const char *s, char c);
+static int	ft_words_count(const char *s, char c);
+static int	ft_letter_count(char *s, char c);
 
 char	**ft_split(const char *s, char c)
 {
 	char	**arr;
 	char	*ptr;
+	char	*c_ptr;
 	int		i;
-	size_t	len;
-	char	*s_cpy;
 
 	i = 0;
-	arr = (char **) malloc(ft_strlen(s) * ft_count_occurrence(s, c) + 1);
-	s_cpy = ft_strdup(s);
-	while (i < ft_count_occurrence(s, c))
+	arr = (char **) malloc(sizeof(char *) * ft_words_count(s, c) + 1);
+	ptr = ft_strtrim(s, c_ptr);
+	while (ptr[i])
 	{
-		ptr = ft_strchr(s_cpy, c);
-		len = ptr - s_cpy;
-		ptr = ft_substr(s_cpy, *s_cpy, len);
-		ft_strlcpy((char *) arr[i], ptr, len + 1);
-		free(ptr);
-		ft_bzero(s_cpy, len + 1);
-		i++;
+		//TODO fazer as cópias das palavras de s
 	}
 	return (arr);
 }
 
-static int	ft_count_occurrence(const char *s, char c)
+static int	ft_words_count(const char *s, char c)
 {
+	int	wc;
 	int	i;
-	int	count;
+	int	flag;
 
+	wc = 0;
 	i = 0;
-	count = 0;
+	flag = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
-			count++;
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			++wc;
+		}
 		i++;
 	}
-	return (count);
+	return (wc);
 }
 
+static int	ft_letter_count(char *s, char c)
+{
+	int	lc;
+
+	lc = 0;
+	while (*s)
+	{
+		if (*s != c)
+			lc++;
+		s++;
+	}
+	return (lc);
+}
 int	main(void)
 {
-	const char	s[] = "Bom dia galera";
-	char		c = ' ';
+	const char	s[] = "----Bom---dia----galera----";
+	char		c = '-';
 	char		**arr;
 
 	arr = ft_split(s, c);
