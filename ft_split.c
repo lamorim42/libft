@@ -6,14 +6,14 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:06:44 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 20:44:40 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/16 00:08:30 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	ft_words_count(const char *s, char c);
-static int	ft_letter_count(char *s, char c);
+static char	*ft_get_word(char **s, char c);
 
 char	**ft_split(const char *s, char c)
 {
@@ -23,12 +23,17 @@ char	**ft_split(const char *s, char c)
 	int		i;
 
 	i = 0;
+	c_ptr = &c;
 	arr = (char **) malloc(sizeof(char *) * ft_words_count(s, c) + 1);
-	ptr = ft_strtrim(s, c_ptr);
-	while (ptr[i])
+	ptr = ft_strdup(s);
+	c_ptr = ptr;
+	while (i < ft_words_count(s, c))
 	{
-		//TODO fazer as cópias das palavras de s
+		arr[i] = ft_get_word(&ptr, c);
+		i++;
 	}
+	free(c_ptr);
+	arr[i] = NULL;
 	return (arr);
 }
 
@@ -55,26 +60,17 @@ static int	ft_words_count(const char *s, char c)
 	return (wc);
 }
 
-static int	ft_letter_count(char *s, char c)
+static char	*ft_get_word(char **s, char c)
 {
-	int	lc;
+	char	*get;
+	int		count;
 
-	lc = 0;
-	while (*s)
-	{
-		if (*s != c)
-			lc++;
-		s++;
-	}
-	return (lc);
-}
-int	main(void)
-{
-	const char	s[] = "----Bom---dia----galera----";
-	char		c = '-';
-	char		**arr;
-
-	arr = ft_split(s, c);
-	printf("%s\n", *arr);
-	return (0);
+	count = 0;
+	while (**s == c)
+		(*s)++;
+	while ((*s)[count] && (*s)[count] != c)
+		count++;
+	get = ft_substr(*s, 0, count);
+	*s += count;
+	return (get);
 }
