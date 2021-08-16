@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/14 19:37:08 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/16 00:13:29 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ char	*ft_strchr(const char *s, int c);
  * @return c returns the corresponding lower-case letter
  */
 char	*ft_strrchr(const char *s, int c);
-
 
 /**
  * @brief compares the first n bytes of s1 and s2
