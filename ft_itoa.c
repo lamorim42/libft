@@ -6,13 +6,14 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 14:13:31 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/16 17:25:00 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/17 02:34:33 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_digit(int c);
+static int	ft_count_digit(long int c);
+static char	*ft_return_str(char *str, int i, long int n, int signal);
 
 char	*ft_itoa(int n)
 {
@@ -23,10 +24,11 @@ char	*ft_itoa(int n)
 	int			i;
 
 	signal = 0;
+	cpy_n = n;
 	if (n < 0)
 	{
+		cpy_n *= -1;
 		signal = 1;
-		cpy_n = -1 * n;
 	}
 	else
 		cpy_n = n;
@@ -37,19 +39,10 @@ char	*ft_itoa(int n)
 	i = count + signal;
 	str_n[i] = '\0';
 	i -= 1;
-	while (i >= 0)
-	{
-		str_n[i] = cpy_n % 10 + '0';
-		if (i == 0 && signal == 1)
-			str_n[i] = '-';
-		printf("%s\n", &str_n[i]);
-		i--;
-		cpy_n /= 10;
-	}
-	return (str_n);
+	return (ft_return_str(str_n, i, cpy_n, signal));
 }
 
-static int	ft_count_digit(int c)
+static int	ft_count_digit(long int c)
 {
 	int	count;
 
@@ -62,12 +55,15 @@ static int	ft_count_digit(int c)
 	return (count);
 }
 
-int	main(void)
+static char	*ft_return_str(char *str, int i, long int n, int signal)
 {
-	int		i = -12345;
-	char	*str;
-
-	str = ft_itoa(i);
-	printf("%s\n", str);
-	return (0);
+	while (i >= 0)
+	{
+		str[i] = n % 10 + '0';
+		if (i == 0 && signal == 1)
+			str[i] = '-';
+		i--;
+		n /= 10;
+	}
+	return (str);
 }
