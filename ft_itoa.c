@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 14:13:31 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/17 02:34:33 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/17 18:52:51 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ char	*ft_itoa(int n)
 
 	signal = 0;
 	cpy_n = n;
-	if (n < 0)
+	if (n == 0)
+		return (ft_strdup("0"));
+	else if (n < 0)
 	{
 		cpy_n *= -1;
 		signal = 1;
 	}
-	else
-		cpy_n = n;
 	count = ft_count_digit(cpy_n);
 	str_n = (char *) malloc(count + signal + 1);
 	if (str_n == NULL)

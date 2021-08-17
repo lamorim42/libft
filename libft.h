@@ -6,15 +6,13 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/17 02:51:08 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/17 18:56:54 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
-//TODO Retirar stdio anstes de enviar
-# include <stdio.h>
 # include <stdlib.h>
 
 /**
@@ -289,5 +287,17 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 
 char	*ft_itoa(int n);
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+void	*ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+void	ft_putchar_fd(char c, int fd);
+
+void	ft_putstr_fd(char *s, int fd);
+
+void	ft_putendl_fd(char *s, int fd);
+
+void	ft_putnbr_fd(int n, int fd);
 
 #endif
