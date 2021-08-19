@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:27:36 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/17 18:34:02 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/18 23:47:58 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, sizeof(char) * ft_strlen(s));
+	if (!s)
+		return ;
+	while (*s)
+		write (fd, s++, 1);
 }
