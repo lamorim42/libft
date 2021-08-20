@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/19 21:06:35 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/20 17:26:35 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+
+# define MAX_INT 2147483647
+# define MIN_INT (-2147483648)
 
 /**
  * @brief Checks for an alphabetic character
@@ -115,7 +118,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
  * s pointer to string
  * c letter to looking for
  *
- * @return c returns the corresponding lower-case letter
+ * @return char* returns the corresponding lower-case letter
  */
 char	*ft_strchr(const char *s, int c);
 
@@ -127,7 +130,7 @@ char	*ft_strchr(const char *s, int c);
  * s pointer to string
  * c letter to looking for
  *
- * @return c returns the corresponding lower-case letter
+ * @return char* returns the corresponding lower-case letter
  */
 char	*ft_strrchr(const char *s, int c);
 
@@ -166,7 +169,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
  * little string to be find
  * len limit of search
  *
- * @return char return ponter to string
+ * @return char* return ponter to string
  *
  */
 char	*ft_strnstr(const char *big, const char *little, size_t len);
@@ -180,7 +183,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
  * c constant byte 
  * n the amount of bytes
  *
- * @return * returns point to s
+ * @return void* returns point to s
  */
 void	*ft_memset(void *s, int c, size_t n);
 
@@ -205,7 +208,7 @@ void	ft_bzero(void *s, size_t n);
  * c char to looking for
  * n the number of bytes to be scaned
  *
- * @return void pointer to first instance of c or NULL
+ * @return void* pointer to first instance of c or NULL
  */
 void	*ft_memchr(const void *s, int c, size_t n);
 
@@ -218,7 +221,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * src memory area source
  * n the number of bytes to be copy
  *
- * @return void pointer to dest
+ * @return void* pointer to dest
  */
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
@@ -231,7 +234,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * src memory area source
  * n the number of bytes to be copy
  *
- * @return void pointer to dest
+ * @return void* pointer to dest
  */
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
@@ -270,7 +273,7 @@ int		ft_atoi(const char *nptr);
  * nmemb number elements of the array
  * size size to be allocated
  *
- * @return void pointer to the allocated memory
+ * @return void* pointer to the allocated memory
  */
 void	*ft_calloc(size_t nmemb, size_t size);
 
@@ -281,67 +284,153 @@ void	*ft_calloc(size_t nmemb, size_t size);
  * @param
  * s the string to be duplicated
  *
- * @return char pointer to the duplicate string
+ * @return char* pointer to the duplicate string
  */
 char	*ft_strdup(const char *s);
 
 // Part 2
 
 /**
- * @brief 
+ * @brief Allocates (with malloc(3)) and returns a substring 
+ * from the string ’s’. The substring begins at index ’start’
+ * and is of maximum size ’len’.
  * 
  * @param
+ * s The string from which to create the substring.
+ * start The start index of the substring in the string s
+ * len The maximum length of the substring.
  *
- * @return 
+ * @return char* returns a substring of s.
  */
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 /**
- * @brief 
+ * @brief Allocates (with malloc(3)) and returns a new string,
+ * which is the result of the concatenation of ’s1’ and ’s2’.
  * 
  * @param
+ * s1 The prefix string.
+ * s2 The suffix string.
  *
- * @return 
+ * @return char* returns a new string,
+ * which is the result of the concatenation of ’s1’ and ’s2’
  */
 char	*ft_strjoin(const char *s1, const char *s2);
 
 /**
- * @brief 
+ * @brief Allocates (with malloc(3)) and returns a copy of
+ * ’s1’ with the characters specified in ’set’ removed
+ * from the beginning and the end of the string.
  * 
  * @param
+ * s1 The string to be trimmed
+ * set The reference set of characters to trim
  *
- * @return 
+ * @return char* returns a copy of
+ * ’s1’ with the characters specified in ’set’ removed
+ * from the beginning and the end of the string.
  */
 char	*ft_strtrim(const char *s1, const char *set);
 
 /**
- * @brief 
+ * @brief Allocates (with malloc(3)) and returns an array 
+ * of strings obtained by splitting ’s’ using the
+ * character ’c’ as a delimiter. The array must be
+ * ended by a NULL pointer.
  * 
  * @param
+ * s* The string to be split
+ * c The delimiter character
  *
- * @return 
+ * @return char* returns an array of strings obtained
+ * by splitting ’s’ using the character ’c’ as a delimiter.
  */
 char	**ft_split(const char *s, char c);
 
 /**
- * @brief 
+ * @brief Allocates (with malloc(3)) and returns a string 
+ * representing the integer received as an argument.
+ * Negative numbers must be handled.
  * 
  * @param
+ * n the integer to convert.
  *
- * @return 
+ * @return char* returns a string representing the
+ * integer received as an argument
  */
 char	*ft_itoa(int n);
 
+/**
+ * @brief Applies the function ’f’ to each character of the
+ * string ’s’ to create a new string (with malloc(3))
+ * resulting from successive applications of ’f’.
+ * 
+ * @param
+ * *s The string on which to iterate
+ * *f The function to apply to each character
+ *
+ * @return char* return a pointer to the new string
+ * resulting from successive applications of ’f’.
+ */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
+/**
+ * @brief Applies the function f to each character of the
+ * string passed as argument, and passing its index
+ * as first argument. Each character is passed by
+ * address to f to be modified if necessary
+ * 
+ * @param
+ * *s The string on which to iterate
+ * *f The function to apply to each character
+ *
+ * @return none
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
+/**
+ * @brief Outputs the character ’c’ to the given file descriptor.
+ * 
+ * @param
+ * c The character to output.
+ * fd The file descriptor on which to write.
+ *
+ * @return none
+ */
 void	ft_putchar_fd(char c, int fd);
 
+/**
+ * @brief Outputs the string ’s’ to the given file descriptor.
+ * 
+ * @param
+ * *s The string to output.
+ * fd The file descriptor on which to write.
+ *
+ * @return none
+ */
 void	ft_putstr_fd(char *s, int fd);
 
+/**
+ * @brief Outputs the string ’s’ to the given file 
+ * descriptor, followed by a newline.
+ * 
+ * @param
+ * *s The string to output
+ * fd The file descriptor on which to write.
+ *
+ * @return none
+ */
 void	ft_putendl_fd(char *s, int fd);
 
+/**
+ * @brief Outputs the integer ’n’ to the given file descriptor.
+ * 
+ * @param
+ * n The integer to output.
+ * fd The file descriptor on which to write.
+ *
+ * @return none
+ */
 void	ft_putnbr_fd(int n, int fd);
 
 #endif
