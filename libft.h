@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/17 18:56:54 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/08/19 21:06:35 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,23 +274,67 @@ int		ft_atoi(const char *nptr);
  */
 void	*ft_calloc(size_t nmemb, size_t size);
 
+/**
+ * @brief Create a duplications of string s, the space of de duplicate of
+ * s is allocate with malloc.
+ * 
+ * @param
+ * s the string to be duplicated
+ *
+ * @return char pointer to the duplicate string
+ */
 char	*ft_strdup(const char *s);
 
 // Part 2
 
+/**
+ * @brief 
+ * 
+ * @param
+ *
+ * @return 
+ */
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
+/**
+ * @brief 
+ * 
+ * @param
+ *
+ * @return 
+ */
 char	*ft_strjoin(const char *s1, const char *s2);
 
+/**
+ * @brief 
+ * 
+ * @param
+ *
+ * @return 
+ */
 char	*ft_strtrim(const char *s1, const char *set);
 
+/**
+ * @brief 
+ * 
+ * @param
+ *
+ * @return 
+ */
 char	**ft_split(const char *s, char c);
 
+/**
+ * @brief 
+ * 
+ * @param
+ *
+ * @return 
+ */
 char	*ft_itoa(int n);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
-void	*ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 void	ft_putchar_fd(char c, int fd);
 
