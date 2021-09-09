@@ -14,9 +14,9 @@ OBJS	= $(SRCS:.c=.o)
 
 NAME	= libft.a
 
-TEST_FUN= test_fun.c
+MAIN= main.c
 
-OBJ_TEST= $(TEST_FUN:.c=.o)
+OBJ_MAIN= $(MAIN:.c=.o)
 
 TEST	= test
 
@@ -36,26 +36,16 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
-test:		$(OBJS) $(OBJ_TEST)
-			$(CC) $(CFLAGS) -o $(TEST) $(OBJ_TEST) $(LFLAGS) -lbsd
-
-runtest:
-			./$(TEST) > error.log
-
-run:
-	../libft_tester/grademe.sh
+main:		$(OBJS) $(OBJ_MAIN)
+			$(CC) $(CFLAGS) -o $(TEST) $(OBJ_MAIN) $(LFLAGS) -lbsd
+			./$(TEST)
 
 clean:
-			$(RM) $(OBJS) $(OBJ_TEST)
+			$(RM) $(OBJS) $(OBJ_MAIN)
 
 fclean:		clean
-			$(RM) $(NAME) $(TEST) error.log a.out libft.so
+			$(RM) $(NAME) $(TEST)
 
 re:			fclean all
 
-# TODO Retirar so antes de enviar projeto
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
-.PHONY:		all clean fclean re run test
+.PHONY:		all clean fclean re run main

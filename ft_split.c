@@ -6,11 +6,12 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:06:44 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/19 16:03:30 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/02 15:59:30 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_words_count(const char *s, char c);
 static char	*ft_get_word(char **s, char c);
@@ -27,7 +28,6 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	i = 0;
 	words = ft_words_count(s, c);
-	c_ptr = &c;
 	arr = (char **) malloc(sizeof(char *) * (words + 1));
 	if (!arr)
 		return (NULL);
