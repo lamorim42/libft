@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:00:45 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/18 23:16:16 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/24 12:40:22 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 char	*ft_strdup(const char *s)
 {
-	char	*s_cpy;
+	char	*dup;
 	size_t	s_len;
+	size_t	i;
 
-	s_len = ft_strlen(s);
-	s_cpy = (char *) malloc(s_len + 1);
-	if (!s_cpy)
+	s_len = 0;
+	while (s[s_len])
+		s_len++;
+	dup = (char *) malloc(s_len + 1);
+	if (!dup)
 		return (NULL);
-	ft_memcpy(s_cpy, s, s_len);
-	s_cpy[s_len] = '\0';
-	return (s_cpy);
+	i = -1;
+	while (++i < s_len + 1)
+		dup[i] = s[i];
+	return (dup);
 }
