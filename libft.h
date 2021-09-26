@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/08/20 17:26:35 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/26 15:24:30 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 # define MAX_INT 2147483647
 # define MIN_INT (-2147483648)
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 256
+# endif
+
+# define N '\n'
 
 /**
  * @brief Checks for an alphabetic character
@@ -432,5 +443,8 @@ void	ft_putendl_fd(char *s, int fd);
  * @return none
  */
 void	ft_putnbr_fd(int n, int fd);
+
+// GNL
+char	*get_next_line(int fd);
 
 #endif
