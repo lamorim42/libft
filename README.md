@@ -1,7 +1,7 @@
 <h1> libft </h1>
 <p>Primeiro projeto da fase 1 na 42. Esse é o projeto onde recriamos algumas funções de bibliotecas C bem conhecidas. Esse projeto se constitui de duas partes e a parte bônus. </p>
 <p>Na parte 1 temos as funções:
-<p href="#isalpha">• isalpha </p>
+<p><a href="#isalpha">• isalpha </a></p>
 <p>• isdigit </p>
 • isalnum 
 • isascii 
