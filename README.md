@@ -40,7 +40,7 @@
 
 <h2 id="isalpha">isalpha</h2>
 <p>Verifica se o argumento passado é um caractere alfabético.</p>
-<dev>
+
 ```c
 int	ft_isalpha(int c)
 {
@@ -49,4 +49,3 @@ int	ft_isalpha(int c)
 	return (0);
 }
 ```
-</dev>
