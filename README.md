@@ -1,7 +1,8 @@
 <h1> libft </h1>
 <p>Primeiro projeto da fase 1 na 42. Esse é o projeto onde recriamos algumas funções de bibliotecas C bem conhecidas. Esse projeto se constitui de duas partes e a parte bônus. </p>
+<div align="center"></div>
 <p>Na parte 1 temos as funções:
-<h2>funções ctype.h</h2>
+<h2>Funções ctype.h</h2>
 <p><a href="#isalpha">• ft_isalpha </a></p>
 <p><a href="#isdigit">• ft_isdigit </a></p>
 <p><a href="#isalnum">• ft_isalnum </a></p>
@@ -9,20 +10,21 @@
 <p><a href="#isprint">• ft_isprint </a></p>
 <p><a href="#toupper">• ft_toupper </a></p>
 <p><a href="#tolower">• ft_tolower </a></p>
-<h2>It's coming</h2>
+<h2>Funções string.h</h2>
 <p><a href="#strlen">• ft_strlen </a></p>
-<p><a href="#memset">• ft_memset </a></p>
-• ft_bzero 
-• ft_memcpy 
-• ft_memmove 
-• ft_strlcpy 
+<p><a href="#strlcpy">• ft_strlcpy </a></p>
 • ft_strlcat 
 • ft_strchr 
 • ft_strrchr 
 • ft_strncmp 
-• ft_memchr 
-• ft_memcmp 
 • ft_strnstr 
+<p><a href="#memset">• ft_memset </a></p>
+• ft_memchr 
+• ft_bzero 
+• ft_memcpy 
+• ft_memmove 
+• ft_memcmp 
+<h2>Funções stdlib.h</h2>
 • ft_atoi</p>
 
 <p>Na parte 2, temos:
@@ -139,6 +141,32 @@ size_t	ft_strlen(const char *s)
 	while (s[len])
 		len++;
 	return (len);
+}
+```
+
+<h2 id="strlcpy">ft_strlcpy</h2>
+<p>Copia <i>destsize - 1</i> caracteres de <i>srt</i> para <i>dst</i>.</p>
+
+```c
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	size_t	src_size;
+	size_t	dst_size;
+
+	src_size = 0;
+	dst_size = 0;
+	while (src[src_size])
+		src_size++;
+	if (dstsize != 0)
+	{
+		while (dst_size < dstsize - 1 && src[dst_size] != '\0')
+		{
+			dst[dst_size] = src[dst_size];
+			dst_size++;
+		}
+		dst[dst_size] = '\0';
+	}
+	return (src_size);
 }
 ```
 
