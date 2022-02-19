@@ -7,6 +7,11 @@
 <p>Primeiro projeto da fase 1 na 42. Esse é o projeto onde recriamos algumas funções de bibliotecas C bem conhecidas. Esse projeto se constitui de duas partes e a parte bônus. </p>
 
 <div>
+<h4> Como navegar por esse repositório </h4>
+<p>Na pasta <code><a href="https://github.com/lamorim42/libft/tree/master/src">src</a></code> estão os códigos fonte das minhas funções que estão na lib. Na pasta <code><a href="https://github.com/lamorim42/libft/tree/master/include">include</a></code> está o arquivo de header. Após o <code>make</code> os arquivos de objotas irão ficar nas pasta <code><a href="https://github.com/lamorim42/libft/tree/master/obj">obj</a></code>.</p>
+</div>
+	
+<div>
 <b>Na parte 1 temos as funções:</b>
 <h3>Funções ctype.h</h3>
 <p><a href="#isalpha">• ft_isalpha </a></p>
