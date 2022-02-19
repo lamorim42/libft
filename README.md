@@ -1,4 +1,4 @@
-<h1> libft </h1>
+<h1> libft :books:</h1>
 
 <figure>
 	<img height="80" width="80" src="https://game.42sp.org.br/static/assets/achievements/libfte.png" alt="libft_img">
@@ -13,30 +13,33 @@
 	
 <div>
 <b>Na parte 1 temos as funções:</b>
-<h3>Funções ctype.h</h3>
-<p><a href="#isalpha">• ft_isalpha </a></p>
-<p><a href="#isdigit">• ft_isdigit </a></p>
-<p><a href="#isalnum">• ft_isalnum </a></p>
-<p><a href="#isascii">• ft_isascii </a></p>
-<p><a href="#isprint">• ft_isprint </a></p>
-<p><a href="#toupper">• ft_toupper </a></p>
-<p><a href="#tolower">• ft_tolower </a></p>
 
-<h3>Funções string.h</h3>
+<pre>
+<h3>---> Funções ctype.h</h3>
+<p><a href="#isalpha">01- ft_isalpha </a></p>
+<p><a href="#isdigit">02- ft_isdigit </a></p>
+<p><a href="#isalnum">03- ft_isalnum </a></p>
+<p><a href="#isascii">04- ft_isascii </a></p>
+<p><a href="#isprint">05- ft_isprint </a></p>
+<p><a href="#toupper">06- ft_toupper </a></p>
+<p><a href="#tolower">07- ft_tolower </a></p></pre>
 
-<p><a href="#strlen">• ft_strlen </a></p>
-<p><a href="#strlcpy">• ft_strlcpy </a></p>
-<p><a href="#strlcat">• ft_strlcat </a></p>
-<p><a href="#strchr">• ft_strchr </a></p>
-<p><a href="#strrchr">• ft_strrchr </a></p>
-<p><a href="#strncmp">• ft_strncmp </a></p>
-<p><a href="#strnstr">• ft_strnstr </a></p>
-<p><a href="#memset">• ft_memset </a></p>
-<p><a href="#memchr">• ft_memchr </a></p>
-<p><a href="#bzero">• ft_bzero </a></p>
-<p><a href="#memcpy">• ft_memcpy </a></p>
-<p><a href="#memmove">• ft_memmove </a></p>
-<p><a href="#memcmp">• ft_memcmp </a></p>
+<pre>
+<h3>---> Funções string.h</h3>
+<p><a href="#strlen">09- ft_strlen </a></p>
+<p><a href="#strlcpy">10- ft_strlcpy </a></p>
+<p><a href="#strlcat">11- ft_strlcat </a></p>
+<p><a href="#strchr">12- ft_strchr </a></p>
+<p><a href="#strrchr">13- ft_strrchr </a></p>
+<p><a href="#strncmp">14- ft_strncmp </a></p>
+<p><a href="#strnstr">15- ft_strnstr </a></p>
+<p><a href="#memset">16- ft_memset </a></p>
+<p><a href="#memchr">17- ft_memchr </a></p>
+<p><a href="#bzero">18- ft_bzero </a></p>
+<p><a href="#memcpy">19- ft_memcpy </a></p>
+<p><a href="#memmove">20- ft_memmove </a></p>
+<p><a href="#memcmp">21- ft_memcmp </a></p></pre>
+
 <h3>Funções stdlib.h</h3>
 • ft_atoi
 </div>
