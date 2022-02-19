@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/09/26 15:24:30 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:37:13 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -444,6 +444,7 @@ void	ft_putendl_fd(char *s, int fd);
  */
 void	ft_putnbr_fd(int n, int fd);
 
+char	*ft_itoa_base(unsigned int n, int base);
 // GNL
 char	*get_next_line(int fd);
 
