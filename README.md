@@ -25,13 +25,13 @@
 <p><a href="#strchr">• ft_strchr </a></p>
 <p><a href="#strrchr">• ft_strrchr </a></p>
 <p><a href="#strncmp">• ft_strncmp </a></p>
-• ft_strnstr 
+<p><a href="#strnstr">• ft_strnstr </a></p>
 <p><a href="#memset">• ft_memset </a></p>
-• ft_memchr 
-• ft_bzero 
-• ft_memcpy 
-• ft_memmove 
-• ft_memcmp 
+<p><a href="#memchr">• ft_memchr </a></p>
+<p><a href="#bzero">• ft_bzero </a></p>
+<p><a href="#memcpy">• ft_memcpy </a></p>
+<p><a href="#memmove">• ft_memmove </a></p>
+<p><a href="#memcmp">• ft_memcmp </a></p>
 <h3>Funções stdlib.h</h3>
 • ft_atoi
 </div>
@@ -281,8 +281,36 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 }
 ```
 
+<h3 id="strnstr">ft_strnstr</h3>
+<p>Encontra a primeira ocorrencia da string <code>little</code> na string <code>big</code>.</p>
+
+```c
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	big_i;
+	size_t	lit_i;
+	size_t	len_lit;
+	char	*big_cpy;
+
+	big_i = 0;
+	lit_i = 0;
+	len_lit = ft_strlen(little);
+	big_cpy = (char *) big;
+	if (len_lit == 0)
+		return (big_cpy);
+	while (big_cpy[big_i] != '\0' && len-- >= len_lit)
+	{
+		if (big_cpy[big_i] == little[lit_i]
+			&& !ft_strncmp(big_cpy + big_i, little, len_lit))
+			return (big_cpy + big_i);
+		big_i++;
+	}
+	return (NULL);
+}
+```
+
 <h3 id="memset">ft_memset</h3>
-<p>Preenche os primeiros <code>n</code> bytes da memória apontada por <var>str</var> com o byte constante <code>c</code>.</p>
+<p>Preenche os primeiros <code>n</code> bytes da memória apontada por <code>str</code> com o byte constante <code>c</code>.</p>
 
 ```c
 void	*ft_memset(void *str, int c, size_t n)
@@ -300,3 +328,108 @@ void	*ft_memset(void *str, int c, size_t n)
 	return (s);
 }
 ```
+
+<h3 id="memchr">ft_memchr</h3>
+<p>Procura nos primeiros <code>n</code> bytes da memória apontada por <code>s</code> o caracter <code>c</code>.</p>
+
+```c
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*str;
+
+	str = (unsigned char *) s;
+	while (n--)
+	{
+		if (*str == (unsigned char)c)
+			return ((void *)str);
+		str++;
+	}
+	return (0);
+}
+```
+
+<h3 id="bzero">ft_bzero</h3>
+<p>Apaga o conteúdo dos primeiros <code>n</code> bytes da memória apontada por <code>s</code>.</p>
+
+```c
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (n--)
+		((char *)s)[i++] = '\0';
+}
+```
+
+<h3 id="memcpy">ft_memcpy</h3>
+<p>Copia <code>n</code> bytes da memória apontada por <code>src</code> para <code>dest</code>.</p>
+
+```c
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*dest_cpy;
+	unsigned char	*src_cpy;
+
+	if ((!dest && !src) || !n)
+		return (dest);
+	dest_cpy = (unsigned char *)dest;
+	src_cpy = (unsigned char *)src;
+	while (n--)
+		*dest_cpy++ = *src_cpy++;
+	return (dest);
+}
+```
+
+<h3 id="memmove">ft_memmove</h3>
+<p>Copia <code>n</code> bytes da memória apontada por <code>src</code> para <code>src</code>.</p>
+
+```c
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char	*dest_cpy;
+	unsigned char	*src_cpy;
+	int				i;
+
+	i = -1;
+	dest_cpy = (unsigned char *)dest;
+	src_cpy = (unsigned char *)src;
+	if (dest > src)
+	{
+		while (n--)
+			dest_cpy[n] = src_cpy[n];
+		return (dest);
+	}
+	else
+	{
+		while (++i < (int)n)
+			dest_cpy[i] = src_cpy[i];
+	}
+	return (dest);
+}
+```
+
+<h3 id="memcmp">ft_memcmp</h3>
+<p>Compara os <code>n</code> primeiros bytes da memória apontada por <code>s1</code> com a memória apontada por <code>s2</code>.</p>
+
+```c
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*s1_cpy;
+	unsigned char	*s2_cpy;
+
+	s1_cpy = (unsigned char *) s1;
+	s2_cpy = (unsigned char *) s2;
+	if (!s1 && !s2)
+		return (0);
+	while (n--)
+	{
+		if (*s1_cpy != *s2_cpy)
+			return (*s1_cpy - *s2_cpy);
+		s1_cpy++;
+		s2_cpy++;
+	}
+	return (0);
+}
+```
+
