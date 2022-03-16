@@ -31,6 +31,7 @@ SRC	=	ft_isalpha.c \
 			ft_memmove.c \
 			ft_memcmp.c \
 			ft_atoi.c \
+			ft_atoli.c \
 			ft_calloc.c \
 			ft_strdup.c \
 			ft_substr.c \
