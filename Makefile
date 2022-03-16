@@ -6,7 +6,7 @@ NAME	= libft.a
 
 ### Compilation configuration
 CC		= clang
-CFLAG	= -Wall -Wextra -Werror -g3 -I include
+CFLAG	= -Wall -Wextra -Werror -g -I include
 
 CCLIB	= ar rcs
 
@@ -37,6 +37,7 @@ SRC	=	ft_isalpha.c \
 			ft_strjoin.c \
 			ft_strtrim.c \
 			ft_split.c \
+			ft_free_split.c \
 			ft_itoa.c \
 			ft_itoa_base.c \
 			ft_strmapi.c \
@@ -88,7 +89,7 @@ git: fclean
 	@echo $(SEP)
 	git add $(ADD)
 	@echo $(SEP)
-	git commit -m "$(MSG)"
+	git commit
 	@echo $(SEP)
 	git status
 	@echo $(SEP)
