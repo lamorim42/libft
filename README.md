@@ -21,21 +21,53 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
 | [ft_isalpha](https://github.com/lamorim42/libft/blob/master/src/ft_isalpha.c) | Verifica se um character é alfabetico | caracter a ser verificado | 1 se for alfabetico, 0 se não for |
-| TODO   |        |       |        |
+| [ft_isdigit](https://github.com/lamorim42/libft/blob/master/src/ft_isdigit.c) |  |  |  |
+| [ft_isalnum](https://github.com/lamorim42/libft/blob/master/src/ft_isalnum.c) |  |  |  |
+| [ft_isascii](https://github.com/lamorim42/libft/blob/master/src/ft_isascii.c) |  |  |  |
+| [ft_isprint](https://github.com/lamorim42/libft/blob/master/src/ft_isprint.c) |  |  |  |
+| [ft_toupper](https://github.com/lamorim42/libft/blob/master/src/ft_toupper.c) |  |  |  |
+| [ft_tolower](https://github.com/lamorim42/libft/blob/master/src/ft_tolower.c) |  |  |  |
 
 ### Funções da string.h
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
 | [ft_strlen](https://github.com/lamorim42/libft/blob/master/src/ft_strlen.c) | TODO |  |  |
-| TODO   |        |       |        |
+| [ft_strlcpy](https://github.com/lamorim42/libft/blob/master/src/ft_strlcpy.c) | TODO |  |  |
+| [ft_strlcat](https://github.com/lamorim42/libft/blob/master/src/ft_strlcat.c) | TODO |  |  |
+| [ft_strchr](https://github.com/lamorim42/libft/blob/master/src/ft_strchr.c) | TODO |  |  |
+| [ft_strrchr](https://github.com/lamorim42/libft/blob/master/src/ft_strrchr.c) | TODO |  |  |
+| [ft_strncmp](https://github.com/lamorim42/libft/blob/master/src/ft_strncmp.c) | TODO |  |  |
+| [ft_strnstr](https://github.com/lamorim42/libft/blob/master/src/ft_strnstr.c) | TODO |  |  |
+| [ft_memset](https://github.com/lamorim42/libft/blob/master/src/ft_memset.c) | TODO |  |  |
+| [ft_memchr](https://github.com/lamorim42/libft/blob/master/src/ft_memchr.c) | TODO |  |  |
+| [ft_bzero](https://github.com/lamorim42/libft/blob/master/src/ft_bzero.c) | TODO |  |  |
+| [ft_memcpy](https://github.com/lamorim42/libft/blob/master/src/ft_memcpy.c) | TODO |  |  |
+| [ft_memmove](https://github.com/lamorim42/libft/blob/master/src/ft_memmove.c) | TODO |  |  |
+| [ft_memcmp](https://github.com/lamorim42/libft/blob/master/src/ft_memcmp.c) | TODO |  |  |
+| [ft_strdup](https://github.com/lamorim42/libft/blob/master/src/ft_strdup.c) | TODO |  |  |
 
 ### Funções da stdlib.h
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
 | [ft_atoi](https://github.com/lamorim42/libft/blob/master/src/ft_atoi.c) | TODO |  |  |
-| TODO   |        |       |        |
+| [ft_itoa](https://github.com/lamorim42/libft/blob/master/src/ft_itoa.c) | TODO |  |  |
+
+### Standard functions
+
+| Função | resumo | input | return |
+| :----: | :----- | :---- | :----- |
+| [ft_substr](https://github.com/lamorim42/libft/blob/master/src/ft_substr.c) | TODO |  |  |
+| [ft_strjoin](https://github.com/lamorim42/libft/blob/master/src/ft_strjoin.c) | TODO |  |  |
+| [ft_strtrim](https://github.com/lamorim42/libft/blob/master/src/ft_strtrim.c) | TODO |  |  |
+| [ft_split](https://github.com/lamorim42/libft/blob/master/src/ft_split.c) | TODO |  |  |
+| [ft_strmapi](https://github.com/lamorim42/libft/blob/master/src/ft_strmapi.c) | TODO |  |  |
+| [ft_striteri](https://github.com/lamorim42/libft/blob/master/src/ft_striteri.c) | TODO |  |  |
+| [ft_putchar_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putchar_fd.c) | TODO |  |  |
+| [ft_putstr_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putstr_fd.c) | TODO |  |  |
+| [ft_putendl_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putendl_fd.c) | TODO |  |  |
+| [ft_putnbr_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putnbr_fd.c) | TODO |  |  |
 
 ## Como usar a minha libft
 
