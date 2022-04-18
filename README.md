@@ -6,6 +6,8 @@
 	
 Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.org.br/). Nesse projeto temos que recodar funções famosas de algumas bibliotecas da **linguagem C**.
 
+> :warning: Essa versão da _libft_ já foi atualizada com funções necessárias em projetos futuros.
+
 ## Índice
 
 1. [Como navegar por esse repositório](#como-navegar)
