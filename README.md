@@ -14,11 +14,11 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 
 <h2 id="como-navegar">Como navegar por esse repositório</h2>
 
-- [`src`](https://github.com/lamorim42/libft/tree/master/src): códigos fonte das funções implementadas no projeto;
-- [`include`](https://github.com/lamorim42/libft/tree/master/include): arquivo de header da `libft`;
-- [`obj`](https://github.com/lamorim42/libft/tree/master/obj): arquivos objetos pós compilação;
-- [`Makefile`](https://github.com/lamorim42/libft/blob/master/Makefile): makefile para compiçar o projeto;
-- [:closed_book: wiki](https://github.com/lamorim42/libft/wiki): Documetação detalhada do projeto.
+- [`src`](./src): códigos fonte das funções implementadas no projeto;
+- [`include`](./include): arquivo de header da `libft`;
+- [`obj`](./obj): arquivos objetos pós compilação;
+- [`Makefile`](./Makefile): makefile para compiçar o projeto;
+- **[:closed_book: wiki](https://github.com/lamorim42/libft/wiki): Documetação detalhada do projeto.**
 
 <h2 id="funcoes">Funções implementadas</h2>
 
@@ -26,13 +26,13 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
-| [ft_isalpha](https://github.com/lamorim42/libft/blob/master/src/ft_isalpha.c) | Verifica se um caractere é alfabetico | caractere a ser verificado | 1 se for alfabetico, 0 se não for |
-| [ft_isdigit](https://github.com/lamorim42/libft/blob/master/src/ft_isdigit.c) | Verifica se um caractere é numérico | caractere a ser verificado | 1 se for numérico, 0 se não for |
-| [ft_isalnum](https://github.com/lamorim42/libft/blob/master/src/ft_isalnum.c) | Verifica se um caractere é alfanumérico | caractere a ser verificado | 1 se for alfanumérico, 0 se não for |
-| [ft_isascii](https://github.com/lamorim42/libft/blob/master/src/ft_isascii.c) | Verifica se um caractere é 7-bit US-ASCII | caractere a ser verificado | 1 se for ascii, 0 se não for |
-| [ft_isprint](https://github.com/lamorim42/libft/blob/master/src/ft_isprint.c) | Verifica se um caractere é "printável" | caractere a ser verificado | 1 se for "printável", 0 se não for |
-| [ft_toupper](https://github.com/lamorim42/libft/blob/master/src/ft_toupper.c) | Se o caractere é minúsculo retorna-o em maiúsculo e vice versa | caractere a ser convertido | caractere em maiúsculo ou minúsculo |
-| [ft_tolower](https://github.com/lamorim42/libft/blob/master/src/ft_tolower.c) | Se o caractere é maiúsculo retorna-o em minúsculo | caractere a ser convertido | caractere em minúsculo |
+| [ft_isalpha](./src/ft_isalpha.c) | Verifica se um caractere é alfabetico | caractere a ser verificado | 1 se for alfabetico, 0 se não for |
+| [ft_isdigit](./src/ft_isdigit.c) | Verifica se um caractere é numérico | caractere a ser verificado | 1 se for numérico, 0 se não for |
+| [ft_isalnum](./src/ft_isalnum.c) | Verifica se um caractere é alfanumérico | caractere a ser verificado | 1 se for alfanumérico, 0 se não for |
+| [ft_isascii](./src/ft_isascii.c) | Verifica se um caractere é 7-bit US-ASCII | caractere a ser verificado | 1 se for ascii, 0 se não for |
+| [ft_isprint](./src/ft_isprint.c) | Verifica se um caractere é "printável" | caractere a ser verificado | 1 se for "printável", 0 se não for |
+| [ft_toupper](./src/ft_toupper.c) | Se o caractere é minúsculo retorna-o em maiúsculo e vice versa | caractere a ser convertido | caractere em maiúsculo ou minúsculo |
+| [ft_tolower](./src/ft_tolower.c) | Se o caractere é maiúsculo retorna-o em minúsculo | caractere a ser convertido | caractere em minúsculo |
 
 > :bulb: **Lidando com caracteres**
 > 
@@ -45,20 +45,22 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
-| [ft_strlen](https://github.com/lamorim42/libft/blob/master/src/ft_strlen.c) | calcula o tamanho da string passada | string a ser medida | tamanho da string |
-| [ft_strlcpy](https://github.com/lamorim42/libft/blob/master/src/ft_strlcpy.c) | copia *n bits* da string passada para o destino passado | memória destino, string fonte e o tamanho a ser copiado | tamanho da string copiada |
-| [ft_strlcat](https://github.com/lamorim42/libft/blob/master/src/ft_strlcat.c) | concatena as strings passadas | string destino, string a ser concatenada, tamanho do buffer | o tamanho da string que foi criada |
-| [ft_strchr](https://github.com/lamorim42/libft/blob/master/src/ft_strchr.c) | procura um caractere em uma string | string para busca e o caractere alvo | um ponteiro para a primeira ocorrência do caractere alvo ou nulo |
-| [ft_strrchr](https://github.com/lamorim42/libft/blob/master/src/ft_strrchr.c) | procura um caractere em uma string | string para busca e o caractere alvo | um ponteiro para a última ocorrência do caractere alvo ou nulo |
-| [ft_strncmp](https://github.com/lamorim42/libft/blob/master/src/ft_strncmp.c) | compara os primeiros *n bits* de duas strings | string a serem comparadas e o tamanho a ser comparado | um **inteiro > 0 ou < 0** se forem diferentes, ou **0** se forem iguais |
-| [ft_strnstr](https://github.com/lamorim42/libft/blob/master/src/ft_strnstr.c) | acha a primeira ocorrência de uma string menor em uma maior | string fonte, string a ser procurada, tamanho da procura | um ponteiro para string que procuramos |
-| [ft_memset](https://github.com/lamorim42/libft/blob/master/src/ft_memset.c) | preenche os primeiros *n bytes* da memória apontada por *s* com o caractere *c* | ponteiro para memória, caractere para preencher, quantidade de bytes para preencher | pronteiro para memória |
-| [ft_memchr](https://github.com/lamorim42/libft/blob/master/src/ft_memchr.c) | scaneia os primeiros *n bytes* da memória a procura da primeira ocorrência do caractere *c* | memória a ser scaneada, caractere a ser procurado, tamanho da busca | ponteiro para a primeira ocorrencia de *c* ou nulo |
-| [ft_bzero](https://github.com/lamorim42/libft/blob/master/src/ft_bzero.c) | Apaga os *n* primeiros *bytes* da memória | pronteiro para memória, aqunatidades de bytes a serem apagados | *void* |
-| [ft_memcpy](https://github.com/lamorim42/libft/blob/master/src/ft_memcpy.c) | TODO |  |  |
-| [ft_memmove](https://github.com/lamorim42/libft/blob/master/src/ft_memmove.c) | TODO |  |  |
-| [ft_memcmp](https://github.com/lamorim42/libft/blob/master/src/ft_memcmp.c) | TODO |  |  |
-| [ft_strdup](https://github.com/lamorim42/libft/blob/master/src/ft_strdup.c) | TODO |  |  |
+| [ft_strlen](./src/ft_strlen.c) | calcula o tamanho da string passada | string a ser medida | tamanho da string |
+| [ft_strlcpy](./src/ft_strlcpy.c) | copia *n bits* da string passada para o destino passado | memória destino, string fonte e o tamanho a ser copiado | tamanho da string copiada |
+| [ft_strlcat](./src/ft_strlcat.c) | concatena as strings passadas | string destino, string a ser concatenada, tamanho do buffer | o tamanho da string que foi criada |
+| [ft_strchr](./src/ft_strchr.c) | procura um caractere em uma string | string para busca e o caractere alvo | um ponteiro para a primeira ocorrência do caractere alvo ou nulo |
+| [ft_strrchr](./src/ft_strrchr.c) | procura um caractere em uma string | string para busca e o caractere alvo | um ponteiro para a última ocorrência do caractere alvo ou nulo |
+| [ft_strncmp](./src/ft_strncmp.c) | compara os primeiros *n bits* de duas strings | string a serem comparadas e o tamanho a ser comparado | um `inteiro > 0 ou < 0` se forem diferentes, ou `0` se forem iguais |
+| [ft_strnstr](./src/ft_strnstr.c) | acha a primeira ocorrência de uma string menor em uma maior | string fonte, string a ser procurada, tamanho da procura | um ponteiro para string que procuramos |
+| [ft_memset](./src/ft_memset.c) | preenche os primeiros *n bytes* da memória apontada por *s* com o caractere *c* | ponteiro para memória, caractere para preencher, quantidade de bytes para preencher | pronteiro para memória |
+| [ft_memchr](./src/ft_memchr.c) | scaneia os primeiros *n bytes* da memória a procura da primeira ocorrência do caractere *c* | memória a ser scaneada, caractere a ser procurado, tamanho da busca | ponteiro para a primeira ocorrencia de *c* ou nulo |
+| [ft_bzero](./src/ft_bzero.c) | Apaga os *n* primeiros *bytes* da memória | pronteiro para memória, aqunatidades de bytes a serem apagados | *void* |
+| [ft_memcpy](./src/ft_memcpy.c) | copia *n bytes* de uma área de memória para outra | área a ser copiada, área cópia e quantidade de bytes a ser copiado | ponteiro para área cópia |
+| [ft_memmove](./src/ft_memmove.c) | copia *n bytes* de uma área de memória para outra[^overlapping] | área a ser copiada, área cópia e quantidade de bytes a ser copiado | ponteiro para área cópia |
+| [ft_memcmp](./src/ft_memcmp.c) | compara, *n bytes*, de duas áreas de memória | áreas a serem comparadas, quantidade de bytes a serem comparados | `> 0` ou `< 0` se forem diferentes ou `0` se forem iguais |
+| [ft_strdup](./src/ft_strdup.c) | duplica uma string | string a ser duplicada | ponteiro para nova string |
+
+[^overlapping]: Leva em consideração sobreposição de memória.
 
 > :bulb: **Lidando com Strings**
 > 
@@ -71,23 +73,24 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
-| [ft_atoi](https://github.com/lamorim42/libft/blob/master/src/ft_atoi.c) | TODO |  |  |
-| [ft_itoa](https://github.com/lamorim42/libft/blob/master/src/ft_itoa.c) | TODO |  |  |
+| [ft_atoi](./src/ft_atoi.c) | TODO |  |  |
+| [ft_itoa](./src/ft_itoa.c) | TODO |  |  |
+| [ft_calloc](./src/ft_calloc.c) | TODO |  |  |
 
 ### Standard functions
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
-| [ft_substr](https://github.com/lamorim42/libft/blob/master/src/ft_substr.c) | TODO |  |  |
-| [ft_strjoin](https://github.com/lamorim42/libft/blob/master/src/ft_strjoin.c) | TODO |  |  |
-| [ft_strtrim](https://github.com/lamorim42/libft/blob/master/src/ft_strtrim.c) | TODO |  |  |
-| [ft_split](https://github.com/lamorim42/libft/blob/master/src/ft_split.c) | TODO |  |  |
-| [ft_strmapi](https://github.com/lamorim42/libft/blob/master/src/ft_strmapi.c) | TODO |  |  |
-| [ft_striteri](https://github.com/lamorim42/libft/blob/master/src/ft_striteri.c) | TODO |  |  |
-| [ft_putchar_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putchar_fd.c) | TODO |  |  |
-| [ft_putstr_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putstr_fd.c) | TODO |  |  |
-| [ft_putendl_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putendl_fd.c) | TODO |  |  |
-| [ft_putnbr_fd](https://github.com/lamorim42/libft/blob/master/src/ft_putnbr_fd.c) | TODO |  |  |
+| [ft_substr](./src/ft_substr.c) | TODO |  |  |
+| [ft_strjoin](./src/ft_strjoin.c) | TODO |  |  |
+| [ft_strtrim](./src/ft_strtrim.c) | TODO |  |  |
+| [ft_split](./src/ft_split.c) | TODO |  |  |
+| [ft_strmapi](./src/ft_strmapi.c) | TODO |  |  |
+| [ft_striteri](./src/ft_striteri.c) | TODO |  |  |
+| [ft_putchar_fd](./src/ft_putchar_fd.c) | TODO |  |  |
+| [ft_putstr_fd](./src/ft_putstr_fd.c) | TODO |  |  |
+| [ft_putendl_fd](./src/ft_putendl_fd.c) | TODO |  |  |
+| [ft_putnbr_fd](./src/ft_putnbr_fd.c) | TODO |  |  |
 
 <h2 id="usando_lib">Como usar a minha libft</h2>
 
