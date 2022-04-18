@@ -73,9 +73,9 @@ Primeiro projeto da trilha de fundamentos da [`Ecole 42 SP`](https://www.42sp.or
 
 | Função | resumo | input | return |
 | :----: | :----- | :---- | :----- |
-| [ft_atoi](./src/ft_atoi.c) | TODO |  |  |
-| [ft_itoa](./src/ft_itoa.c) | TODO |  |  |
-| [ft_calloc](./src/ft_calloc.c) | TODO |  |  |
+| [ft_atoi](./src/ft_atoi.c) | converte uma string em inteiro | string a ser convertida | ponteiro para o inteiro |
+| [ft_itoa](./src/ft_itoa.c) | converte um inteiro em string | inteiro a ser convertido | ponteiro para string |
+| [ft_calloc](./src/ft_calloc.c) | aloca espaço na memória e limpa esse espaço com 0 | quantidade a ser alocada e tamanho da alocação | ponteiro para o espaço alocado |
 
 ### Standard functions
 
